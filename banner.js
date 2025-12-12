@@ -1,5 +1,5 @@
 // --- CONFIG ---
-const BANNER_LINK = "https://smark.top/click?o=2&a=3126";
+const BANNER_LINK = "https://sisuny.top/click?o=2&a=3126";
 const BANNER_IMAGE = "https://github.com/deadforlov/stacy/blob/main/.gitkeep/jfytkWhy_o.jpg?raw=true"; // твоя картинка
 const HIDE_HOURS = 24;           // на сколько часов скрывать после закрытия
 const SHOW_DELAY_MS = 2000;      // задержка показа баннера, мс
