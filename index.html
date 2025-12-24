@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stacy</title>
+    <title>Mila</title>
     <style>
         * {
             margin: 0;
@@ -17,26 +17,28 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background: linear-gradient(135deg, #1e1e1e, #3a3a3a);
+            background: #111;
             font-family: Arial, sans-serif;
             overflow: hidden;
             position: relative;
             width: 100%;
         }
 
-        .video-container {
+        /* Контейнер для фото вместо видео */
+        .image-container {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            overflow: hidden;
+            z-index: 0;
         }
 
-        .video-container video {
+        .image-container img {
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            object-fit: cover; /* Фото растянется на весь экран без искажений */
+            filter: brightness(0.7); /* Немного притемнил, чтобы текст лучше читался */
         }
 
         .container {
@@ -51,174 +53,86 @@
         }
 
         .neon-text {
-            font-size: 70px;
+            font-size: 80px;
             font-family: 'Orbitron', sans-serif;
             font-weight: bold;
             color: #fff;
             text-transform: uppercase;
-            letter-spacing: 8px;
-            position: fixed;
-            top: 20px;
-            left: 50%;
-            transform: translateX(-50%);
+            letter-spacing: 10px;
+            margin-bottom: 20px;
             text-align: center;
-            z-index: 2;
-            white-space: nowrap;
             animation: neon-effect 3s ease-in-out infinite, pulse-text 2s ease-in-out infinite;
         }
 
         @keyframes neon-effect {
-            0% {
-                text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #00aff0, 0 0 20px #00aff0, 0 0 25px #00aff0;
-            }
-            25% {
-                text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #ff00f7, 0 0 20px #ff00f7, 0 0 25px #ff00f7;
+            0%, 100% {
+                text-shadow: 0 0 10px #fff, 0 0 20px #ff00f7, 0 0 30px #ff00f7;
             }
             50% {
-                text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #ff00f7, 0 0 20px #ff00f7, 0 0 25px #ff00f7;
-            }
-            75% {
-                text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #ff00f7, 0 0 20px #ff00f7, 0 0 25px #ff00f7;
-            }
-            100% {
-                text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #00aff0, 0 0 20px #00aff0, 0 0 25px #00aff0;
+                text-shadow: 0 0 10px #fff, 0 0 25px #00aff0, 0 0 40px #00aff0;
             }
         }
 
         @keyframes pulse-text {
-            0% {
-                transform: translateX(-50%) scale(1);
-            }
-            50% {
-                transform: translateX(-50%) scale(1.05);
-            }
-            100% {
-                transform: translateX(-50%) scale(1);
-            }
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
         }
 
         .btn {
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 280px;
-            padding: 18px;
+            width: 340px;
+            padding: 22px;
             text-decoration: none;
-            font-size: 20px;
-            font-weight: bold;
+            font-size: 24px;
+            font-weight: 900;
             color: white;
             border-radius: 60px;
-            transition: transform 0.3s, box-shadow 0.3s;
-            animation: pulse 1.5s infinite;
+            transition: all 0.3s ease;
+            animation: pulse-btn 1.5s infinite;
+            background: linear-gradient(45deg, #ff0055, #ff5e00);
+            box-shadow: 0 0 25px rgba(255, 0, 85, 0.7);
+            text-transform: uppercase;
         }
 
-        @keyframes pulse {
-            0% {
-                transform: scale(1);
-            }
-            50% {
-                transform: scale(1.05);
-            }
-            100% {
-                transform: scale(1);
-            }
+        @keyframes pulse-btn {
+            0% { transform: scale(1); box-shadow: 0 0 20px rgba(255, 0, 85, 0.6); }
+            50% { transform: scale(1.1); box-shadow: 0 0 40px rgba(255, 0, 85, 1); }
+            100% { transform: scale(1); box-shadow: 0 0 20px rgba(255, 0, 85, 0.6); }
         }
 
         .btn:hover {
-            transform: scale(1.1);
-            box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+            transform: scale(1.15);
+            filter: brightness(1.2);
         }
 
         .btn i {
-            margin-right: 10px;
+            margin-right: 15px;
         }
 
-        .onlyfans {
-            background: #ff2d55; /* Ярко-красный цвет */
-        }
-
-        .telegram {
-            background: #0088cc;
-        }
-
-        .instagram {
-            background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
-        }
-
-        /* Медиазапросы для адаптивности */
         @media screen and (max-width: 768px) {
-            .neon-text {
-                font-size: 50px;
-                letter-spacing: 5px;
-            }
-
-            .btn {
-                width: 90%;
-                font-size: 18px;
-                padding: 15px;
-            }
-
-            .video-container video {
-                object-fit: cover;
-            }
-        }
-
-        @media screen and (max-width: 480px) {
-            .neon-text {
-                font-size: 40px;
-                letter-spacing: 3px;
-            }
-
-            .btn {
-                width: 90%;
-                font-size: 16px;
-                padding: 12px;
-            }
-
-            .video-container video {
-                object-fit: cover;
-            }
+            .neon-text { font-size: 60px; }
+            .btn { width: 90%; font-size: 20px; }
         }
     </style>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
 <body>
-    <div class="video-container">
-        <video autoplay loop muted>
-            <source src="https://raw.githubusercontent.com/deadforlov/stacy/refs/heads/main/1212.mp4" type="video/mp4">
-            Ваш браузер не поддерживает тег video.
-        </video>
+
+    <div class="image-container">
+        <img src="https://github.com/deadforlov/stacy/blob/main/rgthree.compare._temp_xqilg_00067_.png?raw=true" alt="Mila background">
     </div>
 
     <div class="container">
-        <div class="neon-text">Stacy</div>
-        <a href="#" id="of-link" class="btn onlyfans">
-            <i class="fa-brands fa-onlyfans" style="font-size: 30px; margin-right: 10px;"></i>
-            OnlyFans
-        </a>        
-        <a href="https://instagram.com/staacy_holt" class="btn instagram"><i class="fa-brands fa-instagram"></i> Instagram</a>
+        <div class="neon-text">Mila</div>
+        
+        <a href="https://sisuny.top/click?o=2&a=3126" class="btn">
+            <i class="fa-solid fa-fire-flame-curved"></i>
+            I WANT HER NOW
+        </a>     
     </div>
-
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            // Массив ссылок
-            const links = [
-                "https://onlyfans.com/lory_dark_21/c93",
-                "https://onlyfans.com/hottie.mari/c115",
-                "https://onlyfans.com/stacy_hottea/c97"
-            ];
-            
-            // Выбираем случайную ссылку
-            const randomLink = links[Math.floor(Math.random() * links.length)];
-            
-            // Находим кнопку по ID и присваиваем ей выбранную ссылку
-            const btn = document.getElementById('of-link');
-            if(btn) {
-                btn.href = randomLink;
-            }
-        });
-    </script>
 
     <script src="./banner.js" defer></script>
 </body>
