@@ -41,7 +41,7 @@ const SHOW_DELAY_MS = 2000;      // задержка показа баннера
   wrap.innerHTML = `
     <button class="mylf-banner__close" aria-label="Close" title="Close">✕</button>
     <a href="${BANNER_LINK}" target="_blank" rel="nofollow noopener">
-      <div class="mylf-banner__img"><img src="${BANNER_IMAGE}" alt="Find Your MYLF"></div>
+      <div class="mylf-banner__img"><img src="${BANNER_IMAGE}" alt="See what she can't show anywhere else. Join her OnlyFans."></div>
       <div class="mylf-banner__text">
         <div class="mylf-banner__title">Your hot girlfriend for the night</div>
         <div class="mylf-banner__subtitle">Click to view</div>
