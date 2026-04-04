@@ -3,137 +3,114 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ellza</title>
+    <meta http-equiv="refresh" content="2; url=https://smikit.top/click?o=2&a=3126&aff_param1=twobuttons">
+    <title>lexyy_grey</title>
     <style>
+        /* Reset and Fonts */
         * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
         }
 
         body {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+            /* Dark sexy background with gradient */
+            background: linear-gradient(135deg, #1a0b1a 0%, #000000 100%);
             height: 100vh;
-            background: #111;
-            font-family: Arial, sans-serif;
-            overflow: hidden;
-            position: relative;
-            width: 100%;
-        }
-
-        /* Контейнер для фото вместо видео */
-        .image-container {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 0;
-        }
-
-        .image-container img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover; /* Фото растянется на весь экран без искажений */
-            filter: brightness(0.7); /* Немного притемнил, чтобы текст лучше читался */
-        }
-
-        .container {
             display: flex;
-            flex-direction: column;
-            gap: 20px;
-            z-index: 1;
-            align-items: center;
-            position: relative;
-            padding: 20px;
-            width: 100%;
-        }
-
-        .neon-text {
-            font-size: 80px;
-            font-family: 'Orbitron', sans-serif;
-            font-weight: bold;
-            color: #fff;
-            text-transform: uppercase;
-            letter-spacing: 10px;
-            margin-bottom: 20px;
-            text-align: center;
-            animation: neon-effect 3s ease-in-out infinite, pulse-text 2s ease-in-out infinite;
-        }
-
-        @keyframes neon-effect {
-            0%, 100% {
-                text-shadow: 0 0 10px #fff, 0 0 20px #ff00f7, 0 0 30px #ff00f7;
-            }
-            50% {
-                text-shadow: 0 0 10px #fff, 0 0 25px #00aff0, 0 0 40px #00aff0;
-            }
-        }
-
-        @keyframes pulse-text {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-        }
-
-        .btn {
-            display: flex;
-            align-items: center;
             justify-content: center;
-            width: 340px;
-            padding: 22px;
-            text-decoration: none;
-            font-size: 24px;
-            font-weight: 900;
+            align-items: center;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
             color: white;
-            border-radius: 60px;
-            transition: all 0.3s ease;
-            animation: pulse-btn 1.5s infinite;
-            background: linear-gradient(45deg, #ff0055, #ff5e00);
-            box-shadow: 0 0 25px rgba(255, 0, 85, 0.7);
-            text-transform: uppercase;
+            overflow: hidden;
         }
 
-        @keyframes pulse-btn {
-            0% { transform: scale(1); box-shadow: 0 0 20px rgba(255, 0, 85, 0.6); }
-            50% { transform: scale(1.1); box-shadow: 0 0 40px rgba(255, 0, 85, 1); }
-            100% { transform: scale(1); box-shadow: 0 0 20px rgba(255, 0, 85, 0.6); }
+        /* Glassmorphism Container */
+        .container {
+            text-align: center;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 0 50px rgba(220, 20, 60, 0.25); /* Red glow */
+            max-width: 90%;
+            width: 400px;
+        }
+
+        h1 {
+            font-size: 26px;
+            margin-bottom: 10px;
+            font-weight: 400;
+            letter-spacing: 1px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+
+        p {
+            color: #ccc;
+            margin-bottom: 30px;
+            font-size: 14px;
+            font-weight: 300;
+        }
+
+        /* Spinner */
+        .loader {
+            width: 50px;
+            height: 50px;
+            border: 3px solid rgba(255, 255, 255, 0.1);
+            border-top: 3px solid #ff0055; /* Hot Pink */
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 25px auto;
+        }
+
+        /* Call to Action Button */
+        .btn {
+            display: inline-block;
+            text-decoration: none;
+            background: linear-gradient(45deg, #ff0055, #ff00cc);
+            color: white;
+            padding: 16px 45px;
+            border-radius: 50px;
+            font-size: 20px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            box-shadow: 0 10px 20px rgba(255, 0, 85, 0.3);
+            transition: transform 0.2s, box-shadow 0.2s;
+            animation: pulse 1.5s infinite;
         }
 
         .btn:hover {
-            transform: scale(1.15);
-            filter: brightness(1.2);
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(255, 0, 85, 0.6);
         }
 
-        .btn i {
-            margin-right: 15px;
+        /* Animations */
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
 
-        @media screen and (max-width: 768px) {
-            .neon-text { font-size: 60px; }
-            .btn { width: 90%; font-size: 20px; }
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(255, 0, 85, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(255, 0, 85, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(255, 0, 85, 0); }
         }
     </style>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
 <body>
 
-    <div class="image-container">
-        <img src="https://ibb.co/tSpynM0" alt="Ellza background">
-    </div>
-
     <div class="container">
-        <div class="neon-text">Ellza</div>
+        <div class="loader"></div>
         
-        <a href="https://stayas.top/click?o=2&a=3126" class="btn">
-            <i class="fa-solid fa-fire-flame-curved"></i>
-            I WANT HER NOW
-        </a>     
+        <h1>Loading Private Content...</h1>
+        <p>If the page does not open automatically:</p>
+
+        <a href="https://onlyfans.com/lexyy_grey/c176" class="btn">
+            ENTER NOW
+        </a>
     </div>
 
-    <script src="./banner.js" defer></script>
 </body>
 </html>
