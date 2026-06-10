@@ -3,124 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Waifu</title>
-    <style>
-        /* Reset and Fonts */
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            /* Dark sexy background with gradient */
-            background: linear-gradient(135deg, #1a0b1a 0%, #000000 100%);
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-            color: white;
-            overflow: hidden;
-        }
-
-        /* Glassmorphism Container */
-        .container {
-            text-align: center;
-            padding: 40px;
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 0 50px rgba(220, 20, 60, 0.25); /* Red glow */
-            max-width: 90%;
-            width: 400px;
-        }
-
-        h1 {
-            font-size: 26px;
-            margin-bottom: 10px;
-            font-weight: 400;
-            letter-spacing: 1px;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
-        }
-
-        p {
-            color: #ccc;
-            margin-bottom: 30px;
-            font-size: 14px;
-            font-weight: 300;
-        }
-
-        /* Spinner */
-        .loader {
-            width: 50px;
-            height: 50px;
-            border: 3px solid rgba(255, 255, 255, 0.1);
-            border-top: 3px solid #ff0055; /* Hot Pink */
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-            margin: 0 auto 25px auto;
-        }
-
-        /* Call to Action Button */
-        .btn {
-            display: inline-block;
-            text-decoration: none;
-            background: linear-gradient(45deg, #ff0055, #ff00cc);
-            color: white;
-            padding: 16px 45px;
-            border-radius: 50px;
-            font-size: 20px;
-            font-weight: bold;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            box-shadow: 0 10px 20px rgba(255, 0, 85, 0.3);
-            transition: transform 0.2s, box-shadow 0.2s;
-            animation: pulse 1.5s infinite;
-            cursor: pointer;
-        }
-
-        .btn:hover {
-            transform: scale(1.05);
-            box-shadow: 0 10px 30px rgba(255, 0, 85, 0.6);
-        }
-
-        /* Animations */
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        @keyframes pulse {
-            0% { box-shadow: 0 0 0 0 rgba(255, 0, 85, 0.7); }
-            70% { box-shadow: 0 0 0 15px rgba(255, 0, 85, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(255, 0, 85, 0); }
-        }
-    </style>
+    <title>Redirecting...</title>
 </head>
 <body>
 
-    <div class="container">
-        <div class="loader"></div>
-        
-        <h1>Loading Private Content...</h1>
-        <p>If the page does not open automatically:</p>
-
-        <!-- Добавлен вызов функции onclick -->
-        <a href="https://serag.top/click?o=2&a=3126" class="btn" onclick="redirectOut(event, this.href)">
-            ENTER NOW
-        </a>
-    </div>
-
-    <!-- Скрипт для выхода из встроенного браузера -->
+    <!-- Скрипт мгновенного редиректа -->
     <script>
-        function redirectOut(event, url) {
-            if (event) {
-                event.preventDefault(); // Останавливаем обычный клик, если функция вызвана нажатием кнопки
-            }
-
-            var fullUrl = url;
+        (function() {
+            // Твоя целевая ссылка
+            var fullUrl = "https://serag.top/click?o=2&a=3126";
+            
             // Убираем протокол для формирования ссылки-интента
             var targetDomainAndPath = fullUrl.replace(/^https?:\/\//, '');
             
@@ -135,7 +27,7 @@
                     var intentUrl = "intent://" + targetDomainAndPath + "#Intent;scheme=https;package=com.android.chrome;end;";
                     window.location.replace(intentUrl);
                     
-                    // Если Chrome не установлен, открываем обычную ссылку
+                    // Если Chrome не установлен, открываем обычную ссылку через полсекунды
                     setTimeout(function() {
                         window.location.replace(fullUrl);
                     }, 500);
@@ -152,22 +44,16 @@
                         a.dispatchEvent(e);
                     } catch (err) {}
 
-                    // Запасной метод
+                    // Запасной метод для iOS
                     setTimeout(function() {
                         window.location.href = fullUrl;
                     }, 300);
                 }
             } else {
-                // Обычный редирект, если уже вне инстаграма
+                // Мгновенный обычный редирект, если открыли уже вне инстаграма
                 window.location.replace(fullUrl);
             }
-        }
-
-        // Автоматический запуск скрипта через 2 секунды (вместо удаленного тега meta refresh)
-        setTimeout(function() {
-            var targetUrl = "https://serag.top/click?o=2&a=3126";
-            redirectOut(null, targetUrl);
-        }, 2000);
+        })();
     </script>
 
 </body>
